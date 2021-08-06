@@ -1,0 +1,42 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>รหัสนักศึกษา</label>
+        <input id="userId" type="text" formControlName="userId" placeholder="User">
+    </div>
+    <div>
+        <label>Password</label>
+        <input id="password" type="password" formControlName="password" placeholder="Password">
+    </div>
+    <div>
+        <label>ชื่อ</label>
+        <input id="fname" type="text" formControlName="fname" placeholder="ชื่อ">
+        <label>นามสกุล</label>
+        <input id="lname" type="text" formControlName="lname" placeholder="นามสกุล">
+    </div>
+    <div>
+        <label>เพศ</label>
+        <input type="radio" formControlName="sex" value="M">ชาย
+        <input type="radio" formControlName="sex" value="F">หญิง
+    </div>
+    <div>
+        <span>คณะ</span>
+        <select formControlName="facultyForm" style="width:20ch">
+            <option *ngFor="let items of faculty" [ngValue]="items.name">
+                {{ items.name }}
+            </option>
+        </select>
+    </div>
+    <div>
+        <span>สาขา</span>
+        <select formControlName="department" style="width:20ch">
+            <option *ngFor="let items of department" [ngValue]="items.name">
+                {{ items.name }}
+            </option>
+        </select>
+    </div>
+    <div>
+       <span>วัน/เดือน/ปีเกิด</span>
+        <input formControlName="birthDay" type="date" id="date-object" />
+    </div>
+    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+</form>
