@@ -1,23 +1,15 @@
-const express = require("express");
-const index_router = require("./index");
-const cors = require("cors");
-const app = express();
+const http = require('http');
 
-app.use(bodyParser.json());
+const hostname = 'localhost';
+const port = 3000;
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+const server = http.createServer((req,res) => {
+    console.log('inside server');
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.end('hello world!');
+})
 
-
-app.use(cors());
-app.use(express.json());
-app.use("/", index_router);
-
-
-app.listen(4000, () => {
-  console.log("listening on port 4000");
+server.listen(port, hostname, () =>{
+    console.log(`listening on port ${port}`);
 });
