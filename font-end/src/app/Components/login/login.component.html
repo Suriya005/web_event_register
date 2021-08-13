@@ -1,11 +1,15 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label>ID</label>
-        <input id="userId" type="text" formControlName="userId" placeholder="User">
-    </div>
-    <div>
-        <label>Password</label>
-        <input id="password" type="password" formControlName="password" placeholder="Password">
-    </div>
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
-</form>
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="loginForm">
+            <div class="user">
+                <input id="userId" type="text" formControlName="userId" placeholder="User">
+            </div>
+            <div class="password">
+                <input id="password" type="password" formControlName="password" placeholder="Password">
+            </div>
+            <div class="btnSubmit">
+                <button type="submit" [disabled]="!loginForm.valid">เข้าสู่ระบบ</button>
+            </div>
+        </div>
+    </form>
+</div>
