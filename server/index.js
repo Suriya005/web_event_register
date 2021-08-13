@@ -1,17 +1,17 @@
 const buildApp = require('./src/app');
 const config = require('./src/config')
 
-const startApp = async () => {
+ const startApp = async () => {
     const appOptions = {
         logger: true
     }
     const app = buildApp(appOptions);
 
     try {
-        await app.listen(config.port, config.hostname)
+        await app.listen(config.port)
         console.log(`app is listening on port ${config.port}`)
-    } catch (error) {
-        throw error
+    } catch (err) {
+        throw err
     }
     
 }
