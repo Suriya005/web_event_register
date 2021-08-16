@@ -32,10 +32,20 @@ const deleteUser = async (req, res) => {
     res.send({msg:"delete successfully", result});
 };
 
+const postUserLogin = async (req, res) => {
+    const {username, password} = req.body
+
+    const userToken = await userModels.loginUser(username, password)
+    // res.send(console.log(userToken));
+
+    return userToken;
+}
+
 module.exports = {
     getUsers: getUsers,
     getUserById: getUserById,
     postUser: postUser,
     patchUser: patchUser,
-    deleteUser: deleteUser
+    deleteUser: deleteUser,
+    postUserLogin: postUserLogin,
 }

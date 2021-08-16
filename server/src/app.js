@@ -4,7 +4,7 @@ const routes = require('./routes')
 const buildApp = (options = {}) =>{
     const app = Fastify(options);
 
-    routes.userRoutes(app) //เรียก Router
+    routes.userRoutes(app) 
     return app
 }
 

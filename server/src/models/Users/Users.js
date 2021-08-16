@@ -1,11 +1,23 @@
 const Users = require('./schema')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const config = require('../../config')
 
 const generatePassword = async (password) => {
     const saltRounds = 10
     const salt = await bcrypt.genSalt(saltRounds)
     return passwordHashed = bcrypt.hash(password, salt)
 
+}
+
+comparePassword = async (password, existsPassword) => {
+    const isPasswordCorrect = await bcrypt.compare(password, existsPassword);
+
+    if(!isPasswordCorrect) {
+        throw new Error(`password incorrect`)
+    }
+
+    return true
 }
 
 const createNewUser = async (doc = {}) =>{
@@ -43,10 +55,34 @@ const deleteUserById = async (userId) =>{
     return deleted
 }
 
-module.exports = {
-    createNewUser: createNewUser,
-    getUsers: getUsers,
-    getUserId: getUserId,
-    updateuserById: updateuserById,
-    deleteUserById: deleteUserById,
+const loginUser = async (username, password) =>{
+        const user = await Users.findOne({ 
+            username
+        })
+
+        if (!user){
+            throw new Error('not find')
+        }
+
+        await comparePassword(password, user.password)
+
+        const token = jwt.sign(
+          {
+            id: user._id,
+          },
+          config.secretKey,
+          {
+            expiresIn: 60,
+          }
+        );
+        return token;
 }
+
+module.exports = {
+  createNewUser: createNewUser,
+  getUsers: getUsers,
+  getUserId: getUserId,
+  updateuserById: updateuserById,
+  deleteUserById: deleteUserById,
+  loginUser: loginUser,
+};

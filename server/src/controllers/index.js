@@ -1,5 +1,7 @@
 const users = require('./users')
+const pg_users = require('./pguser')
 
 module.exports = {
-  users
+  users,
+  pg_users
 };

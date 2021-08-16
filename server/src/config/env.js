@@ -3,8 +3,18 @@ const config = {
   port: process.env.PORT || 3000,
   hostname: process.env.HOSTNAME || "localhost",
   mongodb: {
-    uri: process.env.MONGODB_URI || "mongodb://localhost",
+    uri:
+      process.env.MONGODB_URI ||
+      "mongodb+srv://admin:10qYWbTiI2Q4BDMW@cluster0.fwaph.mongodb.net/test?retryWrites=true&w=majority",
+  },
+  secretKey: process.env.SECRET_KEY || "123456",
+  postgresql: {
+    user: "postgres",
+    host: "localhost",
+    database: "mydatabase",
+    password: "1234",
+    port: 5432,
   },
 };
 
-module.exports = config
+module.exports = config;
