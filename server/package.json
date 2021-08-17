@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "fastify": "^3.20.1",
+    "fastify-cors": "^6.0.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.7",
     "pg": "^8.7.1"

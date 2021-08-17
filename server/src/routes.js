@@ -12,6 +12,18 @@ const userRoutes = (app) => {
 
     // Postsgre SQL routes
     app.get("/pgusers", controllers.pg_users.getUsers);
+    // app.get("/pgusers/:userId", controllers.pg_users.getUserById);
+    app.post("/pgusers", controllers.pg_users.postUser);
+    // app.patch("/pgusers", controllers.pg_users.patchUser);
+    app.delete("/pgusers", controllers.pg_users.deleteUser);
+    // app.post("/pglogin", controllers.pg_users.postUserLogin);
+
+    // test
+    app.post("/apitest", (req,res)=>{
+        const {body} = req
+        res.send(body)
+        // console.log(body)
+    });
 }
 
 module.exports = {

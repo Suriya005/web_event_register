@@ -1,6 +1,6 @@
 const config = {
   nodeEnv: process.env.NODE_ENV || "development",
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 8080,
   hostname: process.env.HOSTNAME || "localhost",
   mongodb: {
     uri:
@@ -11,7 +11,7 @@ const config = {
   postgresql: {
     user: "postgres",
     host: "localhost",
-    database: "mydatabase",
+    database: "event_db",
     password: "1234",
     port: 5432,
   },

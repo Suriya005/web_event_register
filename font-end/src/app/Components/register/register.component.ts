@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +8,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+
+  constructor(private loginService: LoginService) {}
+
   faculty = [
     { name: 'คณะพยาบาลศาสตร์' },
     { name: 'คณะเทคนิคการแพทย์' },
@@ -37,13 +41,21 @@ export class RegisterComponent implements OnInit {
     department: new FormControl(''),
   });
 
-  constructor() {}
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
+
+  // onSubmit() {
+  //   this.loginService.getUser().then(user => {
+  //     console.log(user);
+  //   })
+  // }
+  // onSubmit() {
+  //   console.log(this.registerForm.value);
+  // }
 
   onSubmit() {
-    console.log(this.registerForm.value);
+    this.loginService.loginUser(this.registerForm.value).then((res:any)=>{
+      console.log(res);
+    })
   }
 }
