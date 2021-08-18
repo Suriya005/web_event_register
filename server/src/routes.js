@@ -24,6 +24,9 @@ const userRoutes = (app) => {
         res.send(body)
         // console.log(body)
     });
+    app.get('/',(req,res)=>{
+        res.send('node is work')
+    })
 }
 
 module.exports = {

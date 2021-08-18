@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const config = require("../../config");
 
 const getUsers = async () => {
-  const users = await myData.query("SELECT * from test_user");
+  const users = await myData.query("SELECT * from users");
   return users.rows;
 };
 
@@ -19,7 +19,7 @@ const createNewUser = async (doc = {}) => {
     insertDoc.password = await generatePassword(doc.password);
     console.log(insertDoc);
     await myData.query(
-      `INSERT INTO users(user_id,password,status,title_name ,fname,lname ,sex ,birthday ,mejor ,faculty) VALUES('${insertDoc.userId}', '${insertDoc.password}', 'M','${insertDoc.title_name}', '${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.sex}', '${insertDoc.birthDay}', '${insertDoc.department}', '${insertDoc.faculty}')`
+      `INSERT INTO users(user_id,password,status,title_name ,fname,lname ,sex ,birthday ,mejor ,faculty) VALUES('${insertDoc.userId}', '${insertDoc.password}', 'M','${insertDoc.title_name}', '${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.sex}', '${insertDoc.birthDay}', '${insertDoc.department}', '${insertDoc.facultyForm}')`
     );
     
     return { msg: "insert success" };
