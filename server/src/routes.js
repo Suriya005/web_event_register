@@ -22,8 +22,8 @@ const userRoutes = (app) => {
       controllers.pg_users.getUserById
     );
     app.post("/users", controllers.pg_users.postUser);
-    // app.patch("/pgusers", controllers.pg_users.patchUser);
-    app.delete("/users", controllers.pg_users.deleteUser);
+    app.patch("/users", controllers.pg_users.updateUser);
+    // app.delete("/users", controllers.pg_users.deleteUser);
      app.post("/login", controllers.pg_users.postUserLogin);
 
     // test

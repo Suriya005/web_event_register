@@ -13,15 +13,17 @@ const getUserById = async (req, res) => {
 
 const postUser = async (req, res) => {
   const { body } = req;
-  console.log(body);
   const result = await userModels.createNewUser(body);
   res.send(result);
 };
-const deleteUser = async (req, res) => {
-  const { userId } = req.body;
-  const result = await userModels.deleteUserById(userId);
-  res.send({ msg: "delete successfully", result });
-};
+
+const updateUser = async (req, res) => {
+  const { body } = req;
+  const result = await userModels.updateUser(body)
+  res.send(result);
+}
+
+
 
 const postUserLogin = async (req, res) => {
   const { userId, password } = req.body;
@@ -38,4 +40,5 @@ module.exports = {
   deleteUser,
   getUserById,
   postUserLogin,
+  updateUser,
 };

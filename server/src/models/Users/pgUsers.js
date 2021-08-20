@@ -35,6 +35,15 @@ const createNewUser = async (doc = {}) => {
   return { msg: "insert success" };
 };
 
+// ฟังก์ชั่นแก้ไข user
+const updateUser = async (doc= {})=> {
+const Doc = { ...doc };
+console.log(Doc)
+await myData.query(
+  `UPDATE users SET password='${Doc.password}', fname='${Doc.fname}',lname='${Doc.lname}',sex='${Doc.sex}',faculty='${Doc.facultyForm}',mejor='${Doc.department}', birthday='${Doc.birthDay}',title_name='${Doc.titleName}' WHERE user_id='${Doc.userId}';`
+);
+}
+
 // ฟังก์ชั่นลบ user
 const deleteUserById = async (userId) => {
   await myData.query(`DELETE FROM test_user WHERE id=${userId}`);
@@ -91,4 +100,5 @@ module.exports = {
   deleteUserById,
   getUserById,
   loginUser,
+  updateUser,
 };
