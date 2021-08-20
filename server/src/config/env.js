@@ -1,6 +1,6 @@
 const config = {
   nodeEnv: process.env.NODE_ENV || "development",
-  port: process.env.PORT || 8080,
+  port: process.env.PORT || 3000,
   hostname: process.env.HOSTNAME || "localhost",
   mongodb: {
     uri:
@@ -8,6 +8,7 @@ const config = {
       "mongodb+srv://admin:10qYWbTiI2Q4BDMW@cluster0.fwaph.mongodb.net/test?retryWrites=true&w=majority",
   },
   secretKey: process.env.SECRET_KEY || "123456",
+  secretKeyAdmin: process.env.SECRET_KEY || "nick",
   postgresql: {
     user: "postgres",
     host: "localhost",

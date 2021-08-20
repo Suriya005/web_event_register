@@ -28,10 +28,11 @@ const startApp = async () => {
     console.log(`app is listening on port ${config.port}`);
 
     
-    // const users = await postgreSQL.myData.query(
-    //   `INSERT INTO test_user values(${insertDoc.id},'${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.email}', '${insertDoc.password}')`
-    // );
-    // console.log(users);
+     const users = await postgreSQL.myData.query(
+       `SELECT * from users where user_id='6103111001'`
+       //   `INSERT INTO test_user values(${insertDoc.id},'${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.email}', '${insertDoc.password}')`
+     );
+     console.log(users.rows[0]);
   } catch (err) {
     throw err;
   }

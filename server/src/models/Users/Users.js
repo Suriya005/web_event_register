@@ -10,15 +10,6 @@ const generatePassword = async (password) => {
 
 }
 
-comparePassword = async (password, existsPassword) => {
-    const isPasswordCorrect = await bcrypt.compare(password, existsPassword);
-
-    if(!isPasswordCorrect) {
-        throw new Error(`password incorrect`)
-    }
-
-    return true
-}
 
 const createNewUser = async (doc = {}) =>{
     const insertDoc = {...doc}
@@ -54,6 +45,14 @@ const deleteUserById = async (userId) =>{
     })
     return deleted
 }
+
+comparePassword = async (password, existsPassword) => {
+  const isPasswordCorrect = await bcrypt.compare(password, existsPassword);
+  if (!isPasswordCorrect) {
+    throw new Error(`password incorrect`);
+  }
+  return true;
+};
 
 const loginUser = async (username, password) =>{
         const user = await Users.findOne({ 
