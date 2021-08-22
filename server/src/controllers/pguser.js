@@ -27,10 +27,8 @@ const updateUser = async (req, res) => {
 
 const postUserLogin = async (req, res) => {
   const { userId, password } = req.body;
-
   const userToken = await userModels.loginUser(userId, password);
   // res.send(console.log(userToken));
-
   return userToken;
 };
 

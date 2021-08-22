@@ -7,9 +7,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { EventListComponent } from './Pages/event-list/event-list.component';
+import { UserHomeComponent } from './Pages/user-home/user-home.component';
+
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserHomeComponent,
+    EventListComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
