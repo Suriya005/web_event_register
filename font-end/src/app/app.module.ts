@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { FormsModule } from '@angular/forms';
+import { WebcamModule } from 'ngx-webcam';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { EventListComponent } from './Pages/event-list/event-list.component';
 import { UserHomeComponent } from './Pages/user-home/user-home.component';
 import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { EventDetailComponent } from './Pages/event-detail/event-detail.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { EventDetailComponent } from './Pages/event-detail/event-detail.componen
     EventListComponent,
     EventRegComponent,
     EventDetailComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { EventDetailComponent } from './Pages/event-detail/event-detail.componen
     HttpClientModule,
     CKEditorModule,
     FormsModule,
+    WebcamModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
