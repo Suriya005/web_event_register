@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { EventDetailComponent } from './Pages/event-detail/event-detail.component';
 import { EventListComponent } from './Pages/event-list/event-list.component';
+import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { UserHomeComponent } from './Pages/user-home/user-home.component';
 
 const routes: Routes = [
@@ -27,6 +29,16 @@ const routes: Routes = [
     path: 'event-list',
     component: EventListComponent,
   },
+  {
+    path: 'event-reg',
+    component: EventRegComponent,
+  },
+  {
+    path: 'event-detail',
+    component: EventDetailComponent,
+  },
+
+  
 ];
 
 @NgModule({
