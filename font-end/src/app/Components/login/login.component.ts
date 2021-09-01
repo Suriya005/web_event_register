@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,17 +9,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   loginForm = new FormGroup({
-    userId: new FormControl('',[
-      Validators.required,
-      Validators.minLength(2),
-    ]),
+    userId: new FormControl('', [Validators.required, Validators.minLength(2)]),
     password: new FormControl(''),
-  })
+  });
 
   // constructor
-  constructor() {}
+  constructor(private loginService: LoginService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute) {}
 
   // on init
   ngOnInit() {
@@ -26,8 +26,14 @@ export class LoginComponent implements OnInit {
 
   // my function
   onSubmit() {
-    console.log(this.loginForm.value);
+    if (this.loginForm.valid) {
+      this.loginService
+        .loginUser(this.loginForm.value)
+        .subscribe((res:any) => {
+          console.log(res.userToken);
+          localStorage.setItem('token', res.userToken.toString());
+          this._router.navigate(['/test']);
+        });
+    }
   }
-
- 
 }

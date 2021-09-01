@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { WebcamComponent } from './webcam/webcam.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { EventDetailComponent } from './Pages/event-detail/event-detail.component';
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'test',
     component: TestComponent,
+  },
+  {
+    path: 'cam',
+    component: WebcamComponent,
   },
 ];
 

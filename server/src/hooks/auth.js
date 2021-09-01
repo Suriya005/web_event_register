@@ -29,8 +29,11 @@ const validateTokenAdmin = async (req, res) => {
     if (!authorization) {
       throw new Error("missing authorization header");
     }
-
-    const token = authorization.split(" ")[1];
+    console.log('**************4444***********************')
+    console.log(authorization)
+    console.log("*************444************************");
+    // const token = authorization.split(" ")[1];
+    const token = authorization;
 
     console.log(jwt.decode(token));
 
