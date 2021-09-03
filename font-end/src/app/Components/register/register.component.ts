@@ -44,6 +44,15 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
+  // onSubmit() {
+  //   this.loginService.getUser().then(user => {
+  //     console.log(user);
+  //   })
+  // }
+  // onSubmit() {
+  //   console.log(this.registerForm.value);
+  // }
+
   onSubmit() {
     this.loginService.loginUser(this.registerForm.value).then((res:any)=>{
       console.log(res);
