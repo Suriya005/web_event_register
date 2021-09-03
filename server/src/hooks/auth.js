@@ -5,18 +5,16 @@ const config = require("../config");
 const validateToken = async (req, res) => {
   try {
     const { authorization } = req.headers;
-
     if (!authorization) {
       throw new Error("missing authorization header");
     }
-
-    const token = authorization.split(" ")[1];
-
+    // const token = authorization.split(" ")[1];
+    const token = authorization;
     console.log(jwt.decode(token));
 
     await jwt.verify(token, config.secretKey);
   } catch (err) {
-    res.statusCode = 401;
+    res.statusCode(401);
     throw err;
   }
 };
@@ -29,17 +27,12 @@ const validateTokenAdmin = async (req, res) => {
     if (!authorization) {
       throw new Error("missing authorization header");
     }
-    console.log('**************4444***********************')
-    console.log(authorization)
-    console.log("*************444************************");
     // const token = authorization.split(" ")[1];
     const token = authorization;
-
     console.log(jwt.decode(token));
-
     await jwt.verify(token, config.secretKeyAdmin);
   } catch (err) {
-    res.statusCode = 401;
+    res.statusCode(401).json({message:'ไม่ได้รับอนุญาตให้เข้าถึงในส่วนของ Admin'});
     throw err;
   }
 };

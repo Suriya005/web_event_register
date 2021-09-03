@@ -15,12 +15,17 @@ export class LoginComponent implements OnInit {
   });
 
   // constructor
-  constructor(private loginService: LoginService,
+  constructor(
+    private loginService: LoginService,
     private _router: Router,
-    private _activatedRoute: ActivatedRoute) {}
+    private _activatedRoute: ActivatedRoute
+  ) {}
 
   // on init
   ngOnInit() {
+    if (localStorage.getItem('token')) {
+      this._router.navigate(['/home']);
+    }
     console.log(this.loginForm.value);
   }
 
@@ -29,10 +34,9 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.loginService
         .loginUser(this.loginForm.value)
-        .subscribe((res:any) => {
-          console.log(res.userToken);
+        .subscribe((res: any) => {
           localStorage.setItem('token', res.userToken.toString());
-          this._router.navigate(['/test']);
+          this._router.navigate(['/home']);
         });
     }
   }

@@ -18,4 +18,11 @@ export class UserHomeComponent implements OnInit {
     }
     console.log(`Your token ${localStorage.getItem('token')}`);
   }
+  logout() {
+    localStorage.removeItem('token');
+    this._router.navigate(['/login']);
+  }
+  event_list(){
+    this._router.navigate(['/event-list']);
+  }
 }

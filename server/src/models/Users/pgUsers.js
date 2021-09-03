@@ -76,7 +76,7 @@ const loginUser = async (userId, password) => {
       },
       config.secretKeyAdmin,
       {
-        expiresIn: 60 * 3,
+        expiresIn: 60 * 60,
       }
     );
     return token;
