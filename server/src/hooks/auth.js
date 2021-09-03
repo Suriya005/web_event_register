@@ -27,8 +27,14 @@ const validateTokenAdmin = async (req, res) => {
     if (!authorization) {
       throw new Error("missing authorization header");
     }
+<<<<<<< HEAD
     // const token = authorization.split(" ")[1];
     const token = authorization;
+=======
+
+    const token = authorization.split(" ")[1];
+
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
     console.log(jwt.decode(token));
     await jwt.verify(token, config.secretKeyAdmin);
   } catch (err) {

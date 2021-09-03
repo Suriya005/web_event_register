@@ -15,7 +15,6 @@ import { UserHomeComponent } from './Pages/user-home/user-home.component';
 import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { EventDetailComponent } from './Pages/event-detail/event-detail.component';
 import { TestComponent } from './test/test.component';
-import { WebcamComponent } from './webcam/webcam.component';
 
 
 @NgModule({
@@ -28,7 +27,6 @@ import { WebcamComponent } from './webcam/webcam.component';
     EventRegComponent,
     EventDetailComponent,
     TestComponent,
-    WebcamComponent,
   ],
   imports: [
     BrowserModule,

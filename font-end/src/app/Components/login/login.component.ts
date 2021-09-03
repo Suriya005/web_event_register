@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginService } from 'src/app/services/login.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,17 +7,25 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+
   loginForm = new FormGroup({
-    userId: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    userId: new FormControl('',[
+      Validators.required,
+      Validators.minLength(2),
+    ]),
     password: new FormControl(''),
-  });
+  })
 
   // constructor
+<<<<<<< HEAD
   constructor(
     private loginService: LoginService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute
   ) {}
+=======
+  constructor() {}
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
 
   // on init
   ngOnInit() {
@@ -31,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   // my function
   onSubmit() {
+<<<<<<< HEAD
     if (this.loginForm.valid) {
       this.loginService
         .loginUser(this.loginForm.value)
@@ -39,5 +46,10 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['/home']);
         });
     }
+=======
+    console.log(this.loginForm.value);
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
   }
+
+ 
 }
