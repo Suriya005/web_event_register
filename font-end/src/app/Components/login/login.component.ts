@@ -18,11 +18,15 @@ export class LoginComponent implements OnInit {
 
   // constructor
 <<<<<<< HEAD
+<<<<<<< HEAD
   constructor(
     private loginService: LoginService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute
   ) {}
+=======
+  constructor() {}
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
 =======
   constructor() {}
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
@@ -38,6 +42,7 @@ export class LoginComponent implements OnInit {
   // my function
   onSubmit() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (this.loginForm.valid) {
       this.loginService
         .loginUser(this.loginForm.value)
@@ -46,6 +51,9 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['/home']);
         });
     }
+=======
+    console.log(this.loginForm.value);
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
 =======
     console.log(this.loginForm.value);
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
