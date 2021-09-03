@@ -13,6 +13,7 @@ export class UserHomeComponent implements OnInit {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   logout() {
     localStorage.removeItem('token');
     this._router.navigate(['/login']);
@@ -20,6 +21,9 @@ export class UserHomeComponent implements OnInit {
   event_list(){
     this._router.navigate(['/event-list']);
   }
+=======
+
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
 =======
 
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
