@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   // constructor
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   constructor(
     private loginService: LoginService,
     private _router: Router,
@@ -30,12 +31,14 @@ export class LoginComponent implements OnInit {
 =======
   constructor() {}
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
+=======
+  constructor(private loginService: LoginService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute) {}
+>>>>>>> parent of 2c4f4e8 (u)
 
   // on init
   ngOnInit() {
-    if (localStorage.getItem('token')) {
-      this._router.navigate(['/home']);
-    }
     console.log(this.loginForm.value);
 
   }
@@ -47,9 +50,10 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.loginService
         .loginUser(this.loginForm.value)
-        .subscribe((res: any) => {
+        .subscribe((res:any) => {
+          console.log(res.userToken);
           localStorage.setItem('token', res.userToken.toString());
-          this._router.navigate(['/home']);
+          this._router.navigate(['/test']);
         });
     }
 =======

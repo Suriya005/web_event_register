@@ -30,6 +30,7 @@ const postUserLogin = async (req, res) => {
   const userToken = await userModels.loginUser(userId, password);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const result = { userToken: userToken };
   return result;
   // return res.status(200).json(userToken);
@@ -41,6 +42,19 @@ const postUserLogin = async (req, res) => {
   // res.send(console.log(userToken));
   return userToken;
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
+=======
+  // res.send(console.log(userToken));
+
+  console.log("*******************************");
+  console.log(userToken);
+  console.log("*******************************");
+  // return res.json(userToken);
+  
+  const result = { userToken: userToken };
+  return result;
+  // return res.status(200).json(userToken);
+  // res.cookie("SESSIONID", userToken, { httpOnly: true, secure: true });
+>>>>>>> parent of 2c4f4e8 (u)
 };
 
 module.exports = {
