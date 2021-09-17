@@ -31,6 +31,7 @@ const postUserLogin = async (req, res) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const result = { userToken: userToken };
   return result;
   // return res.status(200).json(userToken);
@@ -43,6 +44,8 @@ const postUserLogin = async (req, res) => {
   return userToken;
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
 =======
+=======
+>>>>>>> parent of 2c4f4e8 (u)
   // res.send(console.log(userToken));
 
   console.log("*******************************");
@@ -54,6 +57,9 @@ const postUserLogin = async (req, res) => {
   return result;
   // return res.status(200).json(userToken);
   // res.cookie("SESSIONID", userToken, { httpOnly: true, secure: true });
+<<<<<<< HEAD
+>>>>>>> parent of 2c4f4e8 (u)
+=======
 >>>>>>> parent of 2c4f4e8 (u)
 };
 

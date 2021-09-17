@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   constructor(
     private loginService: LoginService,
     private _router: Router,
@@ -31,6 +32,11 @@ export class LoginComponent implements OnInit {
 =======
   constructor() {}
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
+=======
+  constructor(private loginService: LoginService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute) {}
+>>>>>>> parent of 2c4f4e8 (u)
 =======
   constructor(private loginService: LoginService,
     private _router: Router,

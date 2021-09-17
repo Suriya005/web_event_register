@@ -32,6 +32,7 @@ const validateTokenAdmin = async (req, res) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // const token = authorization.split(" ")[1];
     const token = authorization;
 =======
@@ -44,12 +45,17 @@ const validateTokenAdmin = async (req, res) => {
 
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
 =======
+=======
+>>>>>>> parent of 2c4f4e8 (u)
     console.log('**************4444***********************')
     console.log(authorization)
     console.log("*************444************************");
     // const token = authorization.split(" ")[1];
     const token = authorization;
 
+<<<<<<< HEAD
+>>>>>>> parent of 2c4f4e8 (u)
+=======
 >>>>>>> parent of 2c4f4e8 (u)
     console.log(jwt.decode(token));
 
