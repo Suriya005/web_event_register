@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-register',
@@ -44,17 +44,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
-  // onSubmit() {
-  //   this.loginService.getUser().then(user => {
-  //     console.log(user);
-  //   })
-  // }
-  // onSubmit() {
-  //   console.log(this.registerForm.value);
-  // }
-
   onSubmit() {
-    this.loginService.registerUser(this.registerForm.value).then((res:any)=>{
+    this.loginService.loginUser(this.registerForm.value).then((res:any)=>{
       console.log(res);
     })
   }

@@ -1,10 +1,9 @@
 const userModels = require("../models/Users/pgUsers");
 
 const getUsers = async (req, res) => {
-  const users = await userModels.getUsers();
-  const result = { users: users };
-  console.log(result);
-  return result;
+  const { userId } = req.params;
+  const users = await userModels.getUsers(userId);
+  res.send(users);
 };
 
 const getUserById = async (req, res) => {
@@ -20,29 +19,39 @@ const postUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   const { body } = req;
-  const result = await userModels.updateUser(body);
+  const result = await userModels.updateUser(body)
   res.send(result);
-};
+}
+
+
 
 const postUserLogin = async (req, res) => {
   const { userId, password } = req.body;
   const userToken = await userModels.loginUser(userId, password);
-  // res.send(console.log(userToken));
-
-  console.log("*******************************");
-  console.log(userToken);
-  console.log("*******************************");
-  // return res.json(userToken);
-  
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
   const result = { userToken: userToken };
   return result;
   // return res.status(200).json(userToken);
-  // res.cookie("SESSIONID", userToken, { httpOnly: true, secure: true });
+=======
+  // res.send(console.log(userToken));
+  return userToken;
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
+=======
+  // res.send(console.log(userToken));
+  return userToken;
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
+=======
+  // res.send(console.log(userToken));
+  return userToken;
+>>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
 };
 
 module.exports = {
   getUsers,
   postUser,
+  deleteUser,
   getUserById,
   postUserLogin,
   updateUser,

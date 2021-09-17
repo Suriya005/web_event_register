@@ -16,8 +16,11 @@ import { UserHomeComponent } from './Pages/user-home/user-home.component';
 import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { EventDetailComponent } from './Pages/event-detail/event-detail.component';
 import { TestComponent } from './test/test.component';
+<<<<<<< HEAD
 import { WebcamComponent } from './webcam/webcam.component';
 import { Webcam2Component } from './webcam2/webcam2.component';
+=======
+>>>>>>> main
 
 
 @NgModule({
@@ -30,8 +33,11 @@ import { Webcam2Component } from './webcam2/webcam2.component';
     EventRegComponent,
     EventDetailComponent,
     TestComponent,
+<<<<<<< HEAD
     WebcamComponent,
     Webcam2Component
+=======
+>>>>>>> main
   ],
   imports: [
     BrowserModule,

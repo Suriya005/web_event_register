@@ -10,9 +10,7 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   loginUser(body: any) {
-    return this.http.post(environment.serverUrl + `/login`, body, {
-      observe: 'body',
-    });
+    return this.http.post(environment.serverUrl + `/login`, body);
   }
 
   registerUser(registerForm: any) {
@@ -23,7 +21,6 @@ export class LoginService {
 
   testUser(token: any) {
     return this.http.get(environment.serverUrl + `/users`, {
-      observe: 'body',
       headers: new HttpHeaders().set('Authorization', token.toString()),
     });
   }
