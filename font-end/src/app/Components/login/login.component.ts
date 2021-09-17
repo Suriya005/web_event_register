@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   // on init
   ngOnInit() {
     console.log(this.loginForm.value);
+
   }
 
   // my function
@@ -35,5 +36,12 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['/test']);
         });
     }
+  }
+
+  camera(){
+    this._router.navigate(['/cam']);
+  }
+  camera2(){
+    this._router.navigate(['/cam2']);
   }
 }

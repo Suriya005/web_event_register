@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { FormsModule } from '@angular/forms';
 import { WebcamModule } from 'ngx-webcam';
+import { WebCamModule } from 'ack-angular-webcam';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { EventDetailComponent } from './Pages/event-detail/event-detail.component';
 import { TestComponent } from './test/test.component';
 import { WebcamComponent } from './webcam/webcam.component';
+import { Webcam2Component } from './webcam2/webcam2.component';
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import { WebcamComponent } from './webcam/webcam.component';
     EventDetailComponent,
     TestComponent,
     WebcamComponent,
+    Webcam2Component
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { WebcamComponent } from './webcam/webcam.component';
     HttpClientModule,
     CKEditorModule,
     FormsModule,
-    WebcamModule,
+    WebCamModule,
+    WebcamModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -26,9 +26,9 @@ const startApp = async () => {
 
     // Connect PostsgreSQL ********
     //   `INSERT INTO test_user values(${insertDoc.id},'${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.email}', '${insertDoc.password}')`
-    const users = await postgreSQL.myData.query(
-      `SELECT * from users where user_id='6103111001'`
-    );
+    // const users = await postgreSQL.myData.query(
+    //   `SELECT * from users where user_id='6103111001'`
+    // );
     // console.log(users.rows[0]);
 
     await app.listen(config.port);
