@@ -29,15 +29,10 @@ const validateTokenAdmin = async (req, res) => {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
     // const token = authorization.split(" ")[1];
     const token = authorization;
 =======
 =======
-=======
-
-    const token = authorization.split(" ")[1];
->>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
 
     const token = authorization.split(" ")[1];
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
