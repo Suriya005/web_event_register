@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
   // on init
   ngOnInit() {
     console.log(this.loginForm.value);
-
   }
 
   // my function
@@ -63,6 +62,7 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
 >>>>>>> parent of 6dc2ee6 (login jsonwebtoken)
   }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
   camera(){
@@ -74,4 +74,6 @@ export class LoginComponent implements OnInit {
 =======
  
 >>>>>>> main
+=======
+>>>>>>> parent of 6c2dbf6 (u)
 }

@@ -7,7 +7,6 @@ import { EventListComponent } from './Pages/event-list/event-list.component';
 import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { UserHomeComponent } from './Pages/user-home/user-home.component';
 import { TestComponent } from './test/test.component';
-import { Webcam2Component } from './webcam2/webcam2.component';
 
 const routes: Routes = [
   {
@@ -48,16 +47,19 @@ const routes: Routes = [
     path: 'cam',
     component: WebcamComponent,
   },
+<<<<<<< HEAD
   {
     path:'cam2',
     component:Webcam2Component
   }
 =======
 >>>>>>> main
+=======
+>>>>>>> parent of 6c2dbf6 (u)
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
