@@ -11,23 +11,12 @@ const startApp = async () => {
     logger: true,
   };
   const app = buildApp(appOptions);
-
+  
   try {
-    // connect MongoDB ********
-    // await mongooes
-    //   .connect(config.mongodb.uri, {
-    //     useNewUrlParser: true,
-    //     useCreateIndex: true,
-    //     useUnifiedTopology: true,
-    //   })
-    //   .then(() => {
-    //     console.log("Mongodb connected successfully");
-    //   });
-
     // Connect PostsgreSQL ********
     //   `INSERT INTO test_user values(${insertDoc.id},'${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.email}', '${insertDoc.password}')`
     const users = await postgreSQL.myData.query(
-      `SELECT * from users where user_id='6103111001'`
+      `SELECT * from users_tb where user_id='6108111004'`
     );
     // console.log(users.rows[0]);
 

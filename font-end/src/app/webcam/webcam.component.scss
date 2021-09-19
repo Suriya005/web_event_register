@@ -1,11 +1,21 @@
-#container {
-	margin: 0px auto;
-	width: 500px;
-	height: 375px;
-	border: 10px #333 solid;
-}
-#videoElement {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
-}
+.button {
+    color: white;
+    background-color: blue;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  
+  ul.links {
+    padding-bottom: 10px;
+  }
+
+  video{
+    width: 100%;
+  }

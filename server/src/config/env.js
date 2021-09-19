@@ -12,7 +12,7 @@ const config = {
   postgresql: {
     user: "postgres",
     host: "localhost",
-    database: "event_db",
+    database: "my_database",
     password: "1234",
     port: 5432,
   },
