@@ -30,7 +30,7 @@ const createNewUser = async (doc = {}) => {
   insertDoc.password = await generatePassword(doc.password);
   console.log(insertDoc);
   await myData.query(
-    `INSERT INTO users(user_id,password,status,title_name ,fname,lname ,sex ,birthday ,mejor ,faculty) VALUES('${insertDoc.userId}', '${insertDoc.password}', 'M','${insertDoc.title_name}', '${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.sex}', '${insertDoc.birthDay}', '${insertDoc.department}', '${insertDoc.facultyForm}')`
+    `INSERT INTO users(user_id,password,status,title_name ,fname,lname ,sex ,birthday ,mejor_id ) VALUES('${insertDoc.userId}', '${insertDoc.password}', 'M','${insertDoc.title_name}', '${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.sex}', '${insertDoc.birthDay}', '${insertDoc.department}')`
   );
   return { msg: "insert success" };
 };

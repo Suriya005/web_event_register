@@ -49,9 +49,9 @@ export class RegisterComponent implements OnInit {
   //     console.log(user);
   //   })
   // }
-  // onSubmit() {
-  //   console.log(this.registerForm.value);
-  // }
+  //  onSubmit() {
+  //    console.log(this.registerForm.value);
+  //  }
 
   onSubmit() {
     this.loginService.registerUser(this.registerForm.value).then((res:any)=>{

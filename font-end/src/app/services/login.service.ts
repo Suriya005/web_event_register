@@ -17,7 +17,7 @@ export class LoginService {
 
   registerUser(registerForm: any) {
     return this.http
-      .post(environment.serverUrl + `/login`, registerForm)
+      .post(environment.serverUrl + `/reg`, registerForm)
       .toPromise();
   }
 
