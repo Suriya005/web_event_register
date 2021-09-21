@@ -37,18 +37,18 @@
                     <input class="radio" type="radio" formControlName="sex" value="F">
                 </div>
             </div>
-            <div class="formItems">
+            <!-- <div class="formItems">
                 <span>คณะ</span>
                 <select formControlName="facultyForm">
                     <option *ngFor="let items of faculty" [ngValue]="items.name">
                         {{ items.name }}
                     </option>
                 </select>
-            </div>
+            </div> -->
             <div class="formItems">
                 <span>สาขา</span>
                 <select formControlName="department">
-                    <option *ngFor="let items of department" [ngValue]="items.name">
+                    <option *ngFor="let items of department" [ngValue]="items.value">
                         {{ items.name }}
                     </option>
                 </select>
