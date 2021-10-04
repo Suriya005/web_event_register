@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         .subscribe((res:any) => {
           console.log(res.userToken);
           localStorage.setItem('token', res.userToken.toString());
-          this._router.navigate(['/test']);
+          this._router.navigate(['/event-reg']);
         });
     }
   }

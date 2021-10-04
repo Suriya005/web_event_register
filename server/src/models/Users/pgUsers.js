@@ -62,7 +62,7 @@ comparePassword = async (password, existsPassword) => {
 // ฟังก์ชั่น login user
 const loginUser = async (userId, password) => {
   const user = await myData.query(
-    `SELECT * from users where user_id='${userId}'`
+    `SELECT * from users_tb where user_id='${userId}'`
   );
   if (user.rowCount > 1) {
     throw new Error("not find");
