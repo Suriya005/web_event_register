@@ -11,22 +11,14 @@ export class RegisterComponent implements OnInit {
 
   constructor(private loginService: LoginService) {}
 
-  faculty = [
-    { name: 'คณะพยาบาลศาสตร์' },
-    { name: 'คณะเทคนิคการแพทย์' },
-    { name: 'คณะสาธารณสุขศาสตร์' },
-    { name: 'คณะทันตแพทยศาสตร์' },
-    { name: 'คณะนิเทศศาสตร์' },
-    { name: 'คณะบริหารธุรกิจและรัฐประศาสนศาสตร์' },
-    { name: 'คณะศิลปศาสตร์และวิทยาศาสตร์' },
-  ];
+
   department = [
-    { name: 'สาขาบริหารธุรกิจ' },
-    { name: 'สาขาบัญชี' },
-    { name: 'สาขาวิทยาการคอมพิวเตอร์', value: 1 },
-    { name: 'สาขารัฐประศาสนศาสตร์' },
-    { name: 'สาขาธุรกิจการบินและการขนส่งทางอากาศ ' },
-    { name: 'สาขานิเทศศาสตร์' },
+    { name: 'สาขาบริหารธุรกิจ', value: 1},
+    { name: 'สาขาบัญชี', value: 1},
+    { name: 'สาขาวิทยาการคอมพิวเตอร์', value: 1},
+    { name: 'สาขารัฐประศาสนศาสตร์', value: 1},
+    { name: 'สาขาธุรกิจการบินและการขนส่งทางอากาศ', value: 1},
+    { name: 'สาขานิเทศศาสตร์', value: 1},
   ];
 
   registerForm = new FormGroup({
@@ -37,23 +29,16 @@ export class RegisterComponent implements OnInit {
     lname: new FormControl(''),
     birthDay: new FormControl(new Date()),
     sex: new FormControl(''),
-    facultyForm: new FormControl(''),
     department: new FormControl(''),
   });
 
 
-  ngOnInit() {}
+  ngOnInit() {
 
-  // onSubmit() {
-  //   this.loginService.getUser().then(user => {
-  //     console.log(user);
-  //   })
-  // }
-  //  onSubmit() {
-  //    console.log(this.registerForm.value);
-  //  }
+  }
 
   onSubmit() {
+    console.log(this.registerForm.value);
     this.loginService.registerUser(this.registerForm.value).then((res:any)=>{
       console.log(res);
     })

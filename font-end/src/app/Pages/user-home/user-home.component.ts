@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-home',
@@ -17,5 +18,41 @@ export class UserHomeComponent implements OnInit {
       this._router.navigate(['/login']);
     }
     console.log(`Your token ${localStorage.getItem('token')}`);
+  }
+
+  eventList() {
+    this._router.navigate(['/event-list']);
+  }
+  registerList() {
+    this._router.navigate(['/reg-event-list']);
+  }
+  feedBackList() {
+    this._router.navigate(['/feedback-event-list']);
+  }
+  userSetting() {
+    this._router.navigate(['/setting']);
+  }
+  logout() {
+    Swal.fire({
+      title: 'ออกจากระบบ',
+      text: 'คุณต้องการออกจากระบบ ใช่หรือไม่?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ใช่',
+      cancelButtonText: 'ไม่ใช่',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'ออกจากระบบสำเร็จ!',
+          text: 'กรุณาเข้าสู่ระบบอีกครั้ง เพื่อใช้งาน',
+          icon: 'success',
+          timer: 1500,
+        });
+        localStorage.clear();
+        this._router.navigate(['/login']);
+      }
+    });
   }
 }

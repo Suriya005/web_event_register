@@ -25,19 +25,18 @@ const updateUser = async (req, res) => {
 };
 
 const postUserLogin = async (req, res) => {
+ try {
   const { userId, password } = req.body;
   const userToken = await userModels.loginUser(userId, password);
-  // res.send(console.log(userToken));
-
   console.log("*******************************");
   console.log(userToken);
   console.log("*******************************");
-  // return res.json(userToken);
-  
   const result = { userToken: userToken };
   return result;
-  // return res.status(200).json(userToken);
-  // res.cookie("SESSIONID", userToken, { httpOnly: true, secure: true });
+ } catch (error) {
+   return res.send({errorMessage:'กรุณากรอก ID และ Password ให้ถูกต้อง'});
+ }
+
 };
 
 module.exports = {

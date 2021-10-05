@@ -5,7 +5,7 @@ const config = require("../../config");
 
 // ค้นหาข้อมูล user ทั้งหมด
 const getUsers = async () => {
-  const users = await myData.query(`SELECT * from users`);
+  const users = await myData.query(`SELECT * from users_tb`);
   return users.rows;
 };
 
@@ -30,7 +30,7 @@ const createNewUser = async (doc = {}) => {
   insertDoc.password = await generatePassword(doc.password);
   console.log(insertDoc);
   await myData.query(
-    `INSERT INTO users(user_id,password,status,title_name ,fname,lname ,sex ,birthday ,mejor_id ) VALUES('${insertDoc.userId}', '${insertDoc.password}', 'M','${insertDoc.title_name}', '${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.sex}', '${insertDoc.birthDay}', '${insertDoc.department}')`
+    `INSERT INTO users_tb(user_id,password,user_status,title_name ,fname,lname ,sex ,birthday ,major_id) VALUES('${insertDoc.userId}', '${insertDoc.password}', 'M','${insertDoc.title_name}', '${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.sex}', '${insertDoc.birthDay}', '${insertDoc.department}')`
   );
   return { msg: "insert success" };
 };
@@ -40,7 +40,7 @@ const updateUser = async (doc= {})=> {
 const Doc = { ...doc };
 console.log(Doc)
 await myData.query(
-  `UPDATE users SET password='${Doc.password}', fname='${Doc.fname}',lname='${Doc.lname}',sex='${Doc.sex}',faculty='${Doc.facultyForm}',mejor='${Doc.department}', birthday='${Doc.birthDay}',title_name='${Doc.titleName}' WHERE user_id='${Doc.userId}';`
+  `UPDATE users_tb SET password='${Doc.password}', fname='${Doc.fname}',lname='${Doc.lname}',sex='${Doc.sex}',faculty='${Doc.facultyForm}',mejor='${Doc.department}', birthday='${Doc.birthDay}',title_name='${Doc.titleName}' WHERE user_id='${Doc.userId}';`
 );
 }
 

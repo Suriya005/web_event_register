@@ -16,6 +16,7 @@ import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { EventDetailComponent } from './Pages/event-detail/event-detail.component';
 import { TestComponent } from './test/test.component';
 import { WebcamComponent } from './webcam/webcam.component';
+import { GoogleMapApisComponent } from './test/google-map-apis/google-map-apis.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { WebcamComponent } from './webcam/webcam.component';
     EventDetailComponent,
     TestComponent,
     WebcamComponent,
+    GoogleMapApisComponent,
   ],
   imports: [
     BrowserModule,

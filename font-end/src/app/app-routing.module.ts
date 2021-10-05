@@ -8,6 +8,7 @@ import { EventListComponent } from './Pages/event-list/event-list.component';
 import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { UserHomeComponent } from './Pages/user-home/user-home.component';
 import { TestComponent } from './test/test.component';
+import { GoogleMapApisComponent } from './test/google-map-apis/google-map-apis.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'cam',
     component: WebcamComponent,
+  },
+  {
+    path: 'map',
+    component: GoogleMapApisComponent,
   },
 ];
 
