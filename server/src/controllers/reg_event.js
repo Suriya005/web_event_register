@@ -6,7 +6,14 @@ const InsertRegisterEvent = async (req, res) => {
     res.send(result);
   };
 
+  const getEventList = async (req, res) => {
+    const result = await RegisterEventModels.getEventList();
+    console.log(result);
+    res.send(result);
+  }
+
   module.exports ={
-    InsertRegisterEvent
+    InsertRegisterEvent,
+    getEventList
   }
   

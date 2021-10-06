@@ -9,6 +9,9 @@ import { EventRegComponent } from './Pages/event-reg/event-reg.component';
 import { UserHomeComponent } from './Pages/user-home/user-home.component';
 import { TestComponent } from './test/test.component';
 import { GoogleMapApisComponent } from './test/google-map-apis/google-map-apis.component';
+import { EventRegListComponent } from './Pages/event-reg-list/event-reg-list.component';
+import { UserSettingComponent } from './Pages/user-setting/user-setting.component';
+import { EventFeedbackListComponent } from './Pages/event-feedback-list/event-feedback-list.component';
 
 const routes: Routes = [
   {
@@ -39,6 +42,18 @@ const routes: Routes = [
   {
     path: 'event-detail',
     component: EventDetailComponent,
+  },
+  {
+    path: 'event-reg-list',
+    component: EventRegListComponent,
+  },
+  {
+    path: 'event-feedback-list',
+    component: EventFeedbackListComponent,
+  },
+  {
+    path: 'user-profile',
+    component: UserSettingComponent,
   },
   {
     path: 'test',

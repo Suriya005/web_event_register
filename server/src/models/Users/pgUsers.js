@@ -69,29 +69,18 @@ const loginUser = async (userId, password) => {
   }
   await comparePassword(password, user.rows[0].password);
   // ตรวจสอบสถานผู้ใช้แล้วแจกโทเคนให้ผู้ใช้
-  if (user.rows[0].status === "A") {
     const token = jwt.sign(
       {
-        id: user.rows.user_id,
+        status:user.rows[0].user_status,
       },
-      config.secretKeyAdmin,
+      config.secretKey,
       {
         expiresIn: 60 * 3,
       }
     );
+    console.log(jwt.decode(token))
     return token;
-  } else {
-    const token = jwt.sign(
-      {
-        id: user.rows.user_id,
-      },
-      config.secretKey,
-      {
-        expiresIn: 60 * 60,
-      }
-    );
-    return token;
-  }
+  
 };
 
 module.exports = {

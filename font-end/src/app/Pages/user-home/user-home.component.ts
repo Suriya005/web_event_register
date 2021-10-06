@@ -17,20 +17,19 @@ export class UserHomeComponent implements OnInit {
     if (!localStorage.getItem('token')) {
       this._router.navigate(['/login']);
     }
-    console.log(`Your token ${localStorage.getItem('token')}`);
   }
 
   eventList() {
     this._router.navigate(['/event-list']);
   }
   registerList() {
-    this._router.navigate(['/reg-event-list']);
+    this._router.navigate(['/event-reg-list']);
   }
   feedBackList() {
-    this._router.navigate(['/feedback-event-list']);
+    this._router.navigate(['/event-feedback-list']);
   }
   userSetting() {
-    this._router.navigate(['/setting']);
+    this._router.navigate(['/user-profile']);
   }
   logout() {
     Swal.fire({

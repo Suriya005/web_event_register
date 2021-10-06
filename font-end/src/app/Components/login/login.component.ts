@@ -25,35 +25,52 @@ export class LoginComponent implements OnInit {
   // on init
   ngOnInit() {
     if (localStorage.getItem('token')) {
-      this._router.navigate(['/home']);
+      this.checkStatus();
     }
   }
 
   // my function
   onSubmit() {
-    console.log(this.loginForm.value);
     if (this.loginForm.valid) {
       this.loginService
         .loginUser(this.loginForm.value)
         .subscribe((res: any) => {
           if (!res.errorMessage) {
-            console.log(res.userToken);
+            localStorage.setItem('userId', this.loginForm.value.userId);
             localStorage.setItem('token', res.userToken.toString());
             Swal.fire({
               icon: 'success',
               title: 'เข้าสู่ระบบสำเร็จ',
               timer: 1500,
             });
-            this._router.navigate(['/home']);
+            this.checkStatus();
           } else {
             Swal.fire({
               icon: 'error',
               title: `เข้าสู่ระบบไม่สำเร็จ`,
-               text:`${res.errorMessage}`,
+              text: `${res.errorMessage}`,
               timer: 2500,
             });
           }
         });
     }
+  }
+
+  checkStatus() {
+    this.loginService
+      .verifyToken({ token: localStorage.getItem('token') })
+      .then((result: any) => {
+        console.log(result);
+        if (result.status == 'A') {
+          this._router.navigate(['/map']);
+          console.log('navigate Admin');
+        } else if (result.status == 'M') {
+          this._router.navigate(['/home']);
+          console.log('navigate User');
+        } else {
+          console.log('err');
+          return;
+        }
+      });
   }
 }

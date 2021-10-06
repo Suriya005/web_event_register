@@ -11,6 +11,8 @@ const userRoutes = (app) => {
   app.post("/login", controllers.pg_users.postUserLogin);
 
   app.post("/reg-event", controllers.reg_event.InsertRegisterEvent);
+  app.get("/get_event_list",controllers.reg_event.getEventList);
+  app.post("/verify_token", controllers.pg_users.verifyToken);
 
   // test
   app.post("/apitest", (req, res) => {

@@ -17,6 +17,9 @@ import { EventDetailComponent } from './Pages/event-detail/event-detail.componen
 import { TestComponent } from './test/test.component';
 import { WebcamComponent } from './webcam/webcam.component';
 import { GoogleMapApisComponent } from './test/google-map-apis/google-map-apis.component';
+import { EventRegListComponent } from './Pages/event-reg-list/event-reg-list.component';
+import { EventFeedbackListComponent } from './Pages/event-feedback-list/event-feedback-list.component';
+import { UserSettingComponent } from './Pages/user-setting/user-setting.component';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { GoogleMapApisComponent } from './test/google-map-apis/google-map-apis.c
     TestComponent,
     WebcamComponent,
     GoogleMapApisComponent,
+    EventRegListComponent,
+    EventFeedbackListComponent,
+    UserSettingComponent,
   ],
   imports: [
     BrowserModule,

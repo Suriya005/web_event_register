@@ -1,4 +1,5 @@
 const userModels = require("../models/Users/pgUsers");
+const jwt = require("jsonwebtoken");
 
 const getUsers = async (req, res) => {
   const users = await userModels.getUsers();
@@ -28,9 +29,7 @@ const postUserLogin = async (req, res) => {
  try {
   const { userId, password } = req.body;
   const userToken = await userModels.loginUser(userId, password);
-  console.log("*******************************");
-  console.log(userToken);
-  console.log("*******************************");
+
   const result = { userToken: userToken };
   return result;
  } catch (error) {
@@ -38,6 +37,13 @@ const postUserLogin = async (req, res) => {
  }
 
 };
+const verifyToken = async (req, res) => {
+  var decoded = jwt.decode(req.body.token)
+  // var decoded = jwt.verify(token, '123456');
+  console.log(decoded)
+  res.send(JSON.stringify(decoded))
+}
+
 
 module.exports = {
   getUsers,
@@ -45,4 +51,5 @@ module.exports = {
   getUserById,
   postUserLogin,
   updateUser,
+  verifyToken
 };

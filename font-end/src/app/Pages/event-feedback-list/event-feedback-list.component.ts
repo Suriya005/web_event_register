@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/services/event.service';
 
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.scss'],
+  selector: 'app-event-feedback-list',
+  templateUrl: './event-feedback-list.component.html',
+  styleUrls: ['./event-feedback-list.component.scss']
 })
-export class EventListComponent implements OnInit {
+export class EventFeedbackListComponent implements OnInit {
   constructor(private eventService: EventService) {}
   eventList: any;
   ngOnInit(): void {

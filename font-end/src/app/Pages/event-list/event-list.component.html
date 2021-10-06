@@ -3,42 +3,10 @@
     <div class="title">
       <span class="header">รายชื่อกิจกรรม</span>
     </div>
-    <div class="content">
-      <button class="items" (click)="testSubmit()">
-        <span class="header">รายชื่อกิจกรรม A</span>
-        <span class="desc">description</span>
-      </button>
-      <button class="items" (click)="testSubmit()">
-        <span class="header">รายชื่อกิจกรรม B</span>
-        <span class="desc">description</span>
-      </button>
-      <button class="items">
-        <span class="header">รายชื่อกิจกรรม C</span>
-        <span class="desc">description</span>
-      </button>
-      <button class="items">
-        <span class="header">รายชื่อกิจกรรม C</span>
-        <span class="desc">description</span>
-      </button>
-      <button class="items">
-        <span class="header">รายชื่อกิจกรรม C</span>
-        <span class="desc">description</span>
-      </button>
-      <button class="items">
-        <span class="header">รายชื่อกิจกรรม C</span>
-        <span class="desc">description</span>
-      </button>
-      <button class="items">
-        <span class="header">รายชื่อกิจกรรม C</span>
-        <span class="desc">description</span>
-      </button>
-      <button class="items">
-        <span class="header">รายชื่อกิจกรรม C</span>
-        <span class="desc">description</span>
-      </button>
-      <button class="items">
-        <span class="header">รายชื่อกิจกรรม C</span>
-        <span class="desc">description</span>
+    <div class="content" *ngFor="let items of this.eventList">
+      <button *ngIf="items.event_status ==='A'" class="items" (click)="testSubmit()">
+        <span class="header">{{items.event_name}} </span>
+        <span class="desc">{{items.event_descr}}</span>
       </button>
     </div>
     <div class="backMenu">

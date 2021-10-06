@@ -21,7 +21,7 @@ export class GoogleMapApisComponent implements OnInit {
 
       let map = new longdo.Map({
         placeholder: document.getElementById('map'),
-        zoom: 15,
+        zoom: 18,
         lastView: false,
         location: {
           lon: position.coords.longitude,
@@ -32,20 +32,47 @@ export class GoogleMapApisComponent implements OnInit {
         lon: position.coords.longitude,
         lat: position.coords.latitude,
       });
-
+      let checkPoint = new longdo.Marker({
+        lon: position.coords.longitude + 0.0003,
+        lat: position.coords.latitude,
+      });
+      // map.Route.mode(longdo.RouteMode.Walk);
+      // map.Route.add(marker);
+      // map.Route.add({
+      //   lon: position.coords.longitude + 0.0003,
+      //   lat: position.coords.latitude,
+      // });
+      // map.Route.search();
+      var marker1 = {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      };
+      var marker2 = {
+        lat: position.coords.latitude + 0.0003,
+        lon: position.coords.longitude,
+      };
+      var distance = longdo.Util.distance([marker1, marker2]);
+      console.log(distance);
+      if(distance < 50){
+        console.log(true);
+      }else{
+        console.log(false);
+      }
       map.Overlays.add(marker);
-      map.Overlays.bounce(marker);
+      map.Overlays.add(checkPoint);
+      map.Overlays.bounce(checkPoint);
+
       // map.zoom(16, true);
 
       // รัศมีพื้นที่
       var geom3 = new longdo.Circle(
         {
-          lon: position.coords.longitude,
-          lat: position.coords.latitude,
+          lon: position.coords.longitude + 0.0003,
+        lat: position.coords.latitude,
         },
-        0.005,
+        0.0005,
         {
-          title: 'Geom 3',
+          title: 'บริเวณการเข้าร่วมกิจกรรม',
           detail: '-',
           lineWidth: 1,
           lineColor: 'rgba(0, 255, 0, 0.8)',
