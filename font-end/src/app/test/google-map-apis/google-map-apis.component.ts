@@ -28,6 +28,7 @@ export class GoogleMapApisComponent implements OnInit {
           lat: position.coords.latitude,
         },
       });
+      
       let marker = new longdo.Marker({
         lon: position.coords.longitude,
         lat: position.coords.latitude,
