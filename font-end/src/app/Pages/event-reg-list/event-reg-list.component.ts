@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/services/event.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-event-reg-list',
@@ -8,7 +9,9 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class EventRegListComponent implements OnInit {
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute) {}
   eventList: any;
   ngOnInit(): void {
     this.eventService.getEventList().then((result: any) => {
@@ -19,6 +22,8 @@ export class EventRegListComponent implements OnInit {
   }
 
   testSubmit() {
+    // localStorage.setItem('event_detail',{eventName:'wd'})
+    this._router.navigate(['/home']);
     console.log('testSubmit');
   }
 }
