@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -8,7 +9,7 @@ import Swal from 'sweetalert2'
 })
 export class EventDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router:Router) { }
 
   ngOnInit(): void {
   }
@@ -18,4 +19,8 @@ test(){
     'You clicked the button!',
     'success'
   )}
+
+  back(){
+    this._router.navigate(['/event-list']);
+  }
 }

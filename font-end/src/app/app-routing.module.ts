@@ -67,6 +67,7 @@ const routes: Routes = [
     path: 'map',
     component: GoogleMapApisComponent,
   },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 ];
 
 @NgModule({

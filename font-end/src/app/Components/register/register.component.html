@@ -11,7 +11,7 @@
                 <input id="password" type="password" formControlName="password">
             </div>
             <div class="formItems">
-                <label>คำนำหน้า  นาย/นางสาว/นาง</label>
+                <label>คำนำหน้า นาย/นางสาว/นาง</label>
                 <input style="width:6ch" id="titleName" type="text" formControlName="titleName">
             </div>
             <div class="formItems">
@@ -54,11 +54,11 @@
                 </select>
             </div>
             <div class="btnSubmit">
-                
-                    <button type="submit" [disabled]="!registerForm.valid">ยืนยัน</button>
-                
-                    <button type="submit">ยกเลิก</button>
-                
+
+                <button type="submit" [disabled]="!registerForm.valid">ยืนยัน</button>
+
+                <button type="submit">ยกเลิก</button>
+
             </div>
         </div>
     </form>
