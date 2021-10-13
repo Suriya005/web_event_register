@@ -1,1 +1,22 @@
-<p>add-major works!</p>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 m-2 d-flex justify-content-center">
+            <h1>เพิ่มข้อสาขา</h1>
+        </div>
+        <div class="col-6">
+            <form [formGroup]="addMajor">
+                <div class="form-group">
+                    <label>สาขา</label>
+                    <input class="form-control" id="facultyName" type="text" formControlName="facultyName"
+                        placeholder="facultyName" />
+                </div>
+                <div class="form-group">
+                    <label>คณะ</label>
+                    <input class="form-control" id="facultyName" type="text" formControlName="facultyName"
+                        placeholder="facultyName" />
+                </div>
+                <button (click)="add()" class="btn btn-primary">ยืนยัน</button>
+            </form>
+        </div>
+    </div>
+</div>
