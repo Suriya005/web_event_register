@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 m-2 d-flex justify-content-center">
+            <h1>เพิ่มข้อคำถาม</h1>
+        </div>
+        <div class="col-6">
+            <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+                <!-- <div *ngFor="let item of testArray"  class="form-group">
+                    <label>{{item}}</label>
+                    <input class="form-control" id="{{this.item}}" type="text" formControlName="{{this.item}}"
+                        placeholder="{{this.item}}" />
+                </div> -->
+                <div class="form-group">
+                    <label>q1</label>
+                    <input class="form-control" id="q1" type="text" formControlName="q1" placeholder="q1" />
+                </div>
+                <div class="form-group">
+                    <label>q2</label>
+                    <input class="form-control" id="q2" type="text" formControlName="q2" placeholder="q2" />
+                </div>
+                <div class="form-group">
+                    <label>q3</label>
+                    <input class="form-control" id="q3" type="text" formControlName="q3" placeholder="q3" />
+                </div>
+                <div class="form-group">
+                    <label>q4</label>
+                    <input class="form-control" id="q4" type="text" formControlName="q4" placeholder="q4" />
+                </div>
+                <div class="form-group">
+                    <label>q5</label>
+                    <input class="form-control" id="q5" type="text" formControlName="q5" placeholder="q5" />
+                </div>
+                <button class="btn btn-primary">ยืนยัน</button>
+            </form>
+        </div>
+    </div>
+</div>

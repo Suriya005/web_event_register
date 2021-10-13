@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
       .then((result: any) => {
         console.log(result);
         if (result.status == 'A') {
-          this._router.navigate(['/map']);
+          this._router.navigate(['/admin']);
           console.log('navigate Admin');
         } else if (result.status == 'M') {
           this._router.navigate(['/home']);
