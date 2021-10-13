@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { RegisterUserComponent } from './forms/register-user/register-user.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEventComponent } from './forms/add-event/add-event.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { AddLocationComponent } from './forms/add-location/add-location.component';
@@ -31,7 +31,8 @@ import { AddQuestionComponent } from './forms/add-question/add-question.componen
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    // FormsModule
   ]
 })
 export class AdminModule { }

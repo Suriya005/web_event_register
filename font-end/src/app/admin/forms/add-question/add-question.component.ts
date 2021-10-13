@@ -5,28 +5,45 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
-  styleUrls: ['./add-question.component.scss']
+  styleUrls: ['./add-question.component.scss'],
 })
 export class AddQuestionComponent implements OnInit {
-
   constructor() { }
 
-  testArray: Array<number> = [1,2,3,4,5]
-  questionNum:any
-  questionForm = new FormGroup({
-    testArray1: new FormArray([
+  titleEventQuestion:any ="";
+  eventQuestion: any = [];
 
-    ])
+  questionForm = new FormGroup({
+    FquestionName: new FormControl(),
+  });
+  questionEditForm = new FormGroup({
+    questionNum: new FormControl(),
+    questionName: new FormControl(),
+  });
+  eventTitel = new FormGroup({
+    titleEventQuestion: new FormControl()
   })
 
-
   ngOnInit(): void {
-
-    
+      
   }
 
-  onSubmit(){
-    console.log(this.questionForm.value)
+  onSubmit() {
+    this.eventQuestion.push(this.questionForm.value.FquestionName);
+    this.questionForm = new FormGroup({
+      FquestionName: new FormControl(''),
+    })
+    console.log(this.eventQuestion);
+  }
+  onEdit() {
+    if (-1 > this.questionEditForm.value.questionName || this.questionEditForm.value.questionName < this.eventQuestion.length + 1 ) {
+      this.eventQuestion.fill(this.questionEditForm.value.questionName,Number(this.questionEditForm.value.questionNum) - 1,this.questionEditForm.value.questionNum );
+    }else{
+      console.log('this value is more then maximum')
+    }
   }
 
+  comfirm() {
+    console.log(this.eventQuestion);
+  }
 }
