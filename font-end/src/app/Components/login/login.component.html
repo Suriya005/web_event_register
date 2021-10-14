@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" >
         <div class="loginForm">
             <span class="header">เข้าสู่ระบบ</span>
             <div class="item">
@@ -9,13 +9,8 @@
                 <input id="password" type="password" formControlName="password" placeholder="Password">
             </div>
             <div class="btnSubmit">
-                <button type="submit" [disabled]="!loginForm.valid">เข้าสู่ระบบ</button>
+                <button (click)="onSubmit()" type="submit" [disabled]="!loginForm.valid">เข้าสู่ระบบ</button>
             </div>
         </div>
-    </form>
-    <!-- <div class="btnSubmit">
-                <button type="admin" (click)="data()">ดึงข้อมูล</button>
-            </div> -->
-           
+    </form>       
 </div>
-<!--  -->

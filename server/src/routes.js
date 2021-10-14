@@ -14,6 +14,10 @@ const userRoutes = (app) => {
   app.get("/get_event_list",controllers.reg_event.getEventList);
   app.post("/verify_token", controllers.pg_users.verifyToken);
 
+  app.get("/get/major", controllers.reg_event.getMajor);
+  app.get("/get/faculty", controllers.reg_event.getFaculty);
+  app.post("/post/faculty", controllers.reg_event.postFaculty);
+
   // test
   app.post("/apitest", (req, res) => {
     const { body } = req;

@@ -10,11 +10,11 @@ import Swal from 'sweetalert2';
 export class AddQuestionComponent implements OnInit {
   constructor() { }
 
-  titleEventQuestion:any ="";
+  titleEventQuestion:any = "";
   eventQuestion: any = [];
 
   questionForm = new FormGroup({
-    FquestionName: new FormControl(),
+    FquestionName: new FormControl('', [Validators.required, Validators.minLength(2)]),
   });
   questionEditForm = new FormGroup({
     questionNum: new FormControl(),
@@ -36,8 +36,10 @@ export class AddQuestionComponent implements OnInit {
     console.log(this.eventQuestion);
   }
   onEdit() {
-    if (-1 > this.questionEditForm.value.questionName || this.questionEditForm.value.questionName < this.eventQuestion.length + 1 ) {
-      this.eventQuestion.fill(this.questionEditForm.value.questionName,Number(this.questionEditForm.value.questionNum) - 1,this.questionEditForm.value.questionNum );
+    console.log(this.questionEditForm.value)
+    if (-1 > this.questionEditForm.value.questionNum || this.questionEditForm.value.questionNum < this.eventQuestion.length + 1 ) {
+      // if (-1 > 0 || 0 < 1 ) {
+      this.eventQuestion.fill(this.questionEditForm.value.questionName,Number(this.questionEditForm.value.questionNum) - 1,Number(this.questionEditForm.value.questionNum) );
     }else{
       console.log('this value is more then maximum')
     }

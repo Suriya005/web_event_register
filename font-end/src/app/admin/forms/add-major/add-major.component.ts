@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EventService } from 'src/app/services/event.service';
+
 
 @Component({
   selector: 'app-add-major',
@@ -8,7 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddMajorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
+
+  majorList:any;
 
   addMajor = new FormGroup({
     majorName: new FormControl(''),
@@ -17,11 +21,14 @@ export class AddMajorComponent implements OnInit {
   });
 
   ngOnInit(): void {
-
+    this.eventService.getFaculy().then((res:any)=>{
+      this.majorList = res;
+      console.log(res);
+    })
   }
   add() {
     console.log(this.addMajor.value);
-    // this.loginService.registerUser(this.registerForm.value).then((res:any)=>{
+    // this.eventService.registerUser(this.registerForm.value).then((res:any)=>{
     //   console.log(res);
     // })
   }

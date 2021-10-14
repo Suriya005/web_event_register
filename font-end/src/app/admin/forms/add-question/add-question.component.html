@@ -34,7 +34,7 @@
                     <input class="form-control" id="questionName" type="text" formControlName="FquestionName" placeholder="questionName"/>
                 </div>
                 <div class="col d-flex justify-content-center">
-                    <button class="btn btn-primary m-2" (click)="onSubmit()">เพิ่มข้อ</button>
+                    <button [disabled]="!questionForm.valid" class="btn btn-primary m-2" (click)="onSubmit()">เพิ่มข้อ</button>
                 </div>
             </form>
         </div>

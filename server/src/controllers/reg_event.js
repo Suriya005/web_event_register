@@ -12,8 +12,29 @@ const InsertRegisterEvent = async (req, res) => {
     res.send(result);
   }
 
+  const getMajor = async (req, res) => {
+    const result = await RegisterEventModels.getMajor();
+    console.log(result);
+    res.send(result);
+  };
+  const getFaculty = async (req, res) => {
+    const result = await RegisterEventModels.getFaculty();
+    console.log(result);
+    res.send(result);
+  };
+
+  const postFaculty = async (req, res) => {
+    const { body } = req;
+    const result = await RegisterEventModels.insertFaculty(body);
+    res.send(result);
+  };
+
   module.exports ={
     InsertRegisterEvent,
-    getEventList
+    getEventList,
+    getMajor,
+    getFaculty,
+    postFaculty
+    
   }
   

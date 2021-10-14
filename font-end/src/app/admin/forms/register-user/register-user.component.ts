@@ -31,6 +31,7 @@ export class RegisterUserComponent implements OnInit {
     department: new FormControl(''),
   });
   ngOnInit(): void {
+    
   }
 
   register() {

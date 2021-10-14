@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddMajorComponent } from './add-major.component';
+import { EventRegListComponent } from './event-reg-list.component';
 
-describe('AddMajorComponent', () => {
-  let component: AddMajorComponent;
-  let fixture: ComponentFixture<AddMajorComponent>;
+describe('EventRegListComponent', () => {
+  let component: EventRegListComponent;
+  let fixture: ComponentFixture<EventRegListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddMajorComponent ]
+      declarations: [ EventRegListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddMajorComponent);
+    fixture = TestBed.createComponent(EventRegListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

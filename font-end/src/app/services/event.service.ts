@@ -9,8 +9,26 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
+  // ข้อมูลกิจกรรม
   getEventList(){
     return this.http.get(environment.serverUrl + `/get_event_list`)
     .toPromise();
   }
+
+  getFaculy(){
+    return this.http.get(environment.serverUrl + `/get/faculty`)
+    .toPromise();
+  }
+
+  getMajor(){
+    return this.http.get(environment.serverUrl + `/get/major`)
+    .toPromise();
+  }
+
+  postFaculy(data:any){
+    return this.http.post(environment.serverUrl + `/post/faculty`,data)
+    .toPromise();
+  }
+
+
 }
