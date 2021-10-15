@@ -16,8 +16,7 @@ export class AddMajorComponent implements OnInit {
 
   addMajor = new FormGroup({
     majorName: new FormControl(''),
-    latitude: new FormControl(''),
-    longitude: new FormControl(''),
+    facultyName: new FormControl(''),
   });
 
   ngOnInit(): void {
