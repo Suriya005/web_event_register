@@ -10,7 +10,7 @@ export class TestComponent implements OnInit {
   constructor(private loginService: LoginService) {}
    token = localStorage.getItem('token');
   ngOnInit(): void {
-    this.loginService.testUser(this.token).subscribe((res: any) => {
+    this.loginService.getUser(this.token).subscribe((res: any) => {
       console.log(res);
     });
      

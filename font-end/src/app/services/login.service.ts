@@ -21,12 +21,20 @@ export class LoginService {
       .toPromise();
   }
 
-  testUser(token: any) {
+  getUser(token: any) {
     return this.http.get(environment.serverUrl + `/users`, {
       observe: 'body',
       headers: new HttpHeaders().set('Authorization', token.toString()),
     });
   }
+
+  getUserOnChange(data: any){
+    return this.http.post(environment.serverUrl + `/users/search`,data.searchData,{
+      observe: 'body',
+      headers: new HttpHeaders().set('Authorization', data.token.toString()),
+    }).toPromise();
+  }
+
   verifyToken(token:any){
     // console.log(token)
     return this.http.post(environment.serverUrl + `/verify_token`,token).toPromise();

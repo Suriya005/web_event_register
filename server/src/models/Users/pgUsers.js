@@ -5,7 +5,20 @@ const config = require("../../config");
 
 // ค้นหาข้อมูล user ทั้งหมด
 const getUsers = async () => {
-  const users = await myData.query(`SELECT * from users_tb`);
+  const sql = `SELECT users_tb.user_id, users_tb.user_status, users_tb.title_name, users_tb.fname, users_tb.lname, users_tb.sex, users_tb.birthday, major_tb.major_name, faculty_tb.faculty_name
+  FROM ((users_tb
+  INNER JOIN major_tb ON users_tb.major_id = major_tb.major_id)
+  INNER JOIN faculty_tb ON major_tb.faculty_id = faculty_tb.faculty_id);`
+  const users = await myData.query(sql);
+  return users.rows;
+};
+
+const getUsersOnChange = async (data) => {
+  const sql = `SELECT users_tb.user_id, users_tb.user_status, users_tb.title_name, users_tb.fname, users_tb.lname, users_tb.sex, users_tb.birthday, major_tb.major_name, faculty_tb.faculty_name
+  FROM ((users_tb
+  INNER JOIN major_tb ON users_tb.major_id = major_tb.major_id)
+  INNER JOIN faculty_tb ON major_tb.faculty_id = faculty_tb.faculty_id) where user_id LIKE '%${data}%' OR fname LIKE '%${data}%' OR lname LIKE '%${data}%' OR major_name LIKE '%${data}%' OR faculty_name LIKE '%${data}%';`
+  const users = await myData.query(sql);
   return users.rows;
 };
 
@@ -30,7 +43,7 @@ const createNewUser = async (doc = {}) => {
   insertDoc.password = await generatePassword(doc.password);
   console.log(insertDoc);
   await myData.query(
-    `INSERT INTO users_tb(user_id,password,user_status,title_name ,fname,lname ,sex ,birthday ,major_id) VALUES('${insertDoc.userId}', '${insertDoc.password}', 'M','${insertDoc.title_name}', '${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.sex}', '${insertDoc.birthDay}', '${insertDoc.department}')`
+    `INSERT INTO users_tb(user_id,password,user_status,title_name ,fname,lname ,sex ,birthday ,major_id) VALUES('${insertDoc.userId}', '${insertDoc.password}', 'M','${insertDoc.titleName}', '${insertDoc.fname}', '${insertDoc.lname}', '${insertDoc.sex}', '${insertDoc.birthDay}', '${insertDoc.major}')`
   );
   return { msg: "insert success" };
 };
@@ -90,4 +103,5 @@ module.exports = {
   getUserById,
   loginUser,
   updateUser,
+  getUsersOnChange
 };

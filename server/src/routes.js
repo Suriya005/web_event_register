@@ -4,6 +4,7 @@ const hooks = require("./hooks");
 const userRoutes = (app) => {
   // Postsgre SQL routes
   app.get("/users",{ preHandler: [hooks.auth.validateTokenAdmin] },controllers.pg_users.getUsers);
+  app.post("/users/search",{ preHandler: [hooks.auth.validateTokenAdmin] },controllers.pg_users.getUserOnChange);
   app.get("/pgusers/:userId", { preHandler: [hooks.auth.validateToken] },controllers.pg_users.getUserById);
   app.post("/reg", controllers.pg_users.postUser);
   app.patch("/users", controllers.pg_users.updateUser);

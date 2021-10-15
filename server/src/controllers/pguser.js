@@ -2,11 +2,17 @@ const userModels = require("../models/Users/pgUsers");
 const jwt = require("jsonwebtoken");
 
 const getUsers = async (req, res) => {
-  const users = await userModels.getUsers();
-  const result = { users: users };
+  const result = await userModels.getUsers();
   console.log(result);
-  return result;
+  res.send(result);
 };
+
+const getUserOnChange = async (req, res) => {
+  console.log(req.body,'test')
+  const { body } = req;
+  const result = await userModels.getUsersOnChange(body);
+  res.send(result);
+}
 
 const getUserById = async (req, res) => {
   const user = await userModels.getUserById();
@@ -51,5 +57,6 @@ module.exports = {
   getUserById,
   postUserLogin,
   updateUser,
-  verifyToken
+  verifyToken,
+  getUserOnChange
 };

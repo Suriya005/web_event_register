@@ -14,7 +14,6 @@ const validateToken = async (req, res) => {
 
     console.log(jwt.decode(token));
 
-    await jwt.verify(token, config.secretKey);
   } catch (err) {
     res.statusCode = 401;
     throw err;
@@ -22,7 +21,7 @@ const validateToken = async (req, res) => {
 };
 
 // ตรวจสอบ token ของ Admin
-const validateTokenAdmin = async (req, res) => {
+const validateTokenAdmin = async (req, res, next) => {
   try {
     const { authorization } = req.headers;
 
@@ -34,10 +33,12 @@ const validateTokenAdmin = async (req, res) => {
     console.log("*************444************************");
     // const token = authorization.split(" ")[1];
     const token = authorization;
-
-    console.log(jwt.decode(token));
-
-    await jwt.verify(token, config.secretKeyAdmin);
+    const deToken = jwt.decode(token)
+    console.log(deToken);
+    if(deToken.status != 'A'){
+      throw new Error("You haven't status Addmin");
+    }
+    next()
   } catch (err) {
     res.statusCode = 401;
     throw err;
