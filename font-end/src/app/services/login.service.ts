@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders, } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 
@@ -33,6 +33,12 @@ export class LoginService {
       observe: 'body',
       headers: new HttpHeaders().set('Authorization', data.token.toString()),
     }).toPromise();
+  }
+
+  deleteUser(data: any) {
+    return this.http.delete(environment.serverUrl + `/users`, {
+      body: data
+   }).toPromise();
   }
 
   verifyToken(token:any){

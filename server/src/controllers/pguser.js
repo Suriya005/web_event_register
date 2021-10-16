@@ -39,8 +39,15 @@ const postUserLogin = async (req, res) => {
  } catch (error) {
    return res.send({errorMessage:'กรุณากรอก ID และ Password ให้ถูกต้อง'});
  }
-
 };
+
+const deleteUser = async (req, res) => {
+  const userId = req.body;
+  console.log(userId)
+  const result = await userModels.deleteUser(userId);
+  res.send(result);
+};
+
 const verifyToken = async (req, res) => {
   var decoded = jwt.decode(req.body.token)
   console.log(decoded)
@@ -54,6 +61,7 @@ module.exports = {
   getUserById,
   postUserLogin,
   updateUser,
+  deleteUser,
   verifyToken,
   getUserOnChange
 };

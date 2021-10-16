@@ -5,7 +5,7 @@ const config = require("../../config");
 
 // ค้นหาข้อมูล user ทั้งหมด
 const getUsers = async () => {
-  const sql = `SELECT users_tb.user_id, users_tb.user_status, users_tb.title_name, users_tb.fname, users_tb.lname, users_tb.sex, users_tb.birthday, major_tb.major_name, faculty_tb.faculty_name
+  const sql = `SELECT users_tb.user_id, users_tb.password, users_tb.user_status, users_tb.title_name, users_tb.fname, users_tb.lname, users_tb.sex, users_tb.birthday, major_tb.major_id, major_tb.major_name, faculty_tb.faculty_name
   FROM ((users_tb
   INNER JOIN major_tb ON users_tb.major_id = major_tb.major_id)
   INNER JOIN faculty_tb ON major_tb.faculty_id = faculty_tb.faculty_id);`
@@ -14,7 +14,7 @@ const getUsers = async () => {
 };
 
 const getUsersOnChange = async (data) => {
-  const sql = `SELECT users_tb.user_id, users_tb.user_status, users_tb.title_name, users_tb.fname, users_tb.lname, users_tb.sex, users_tb.birthday, major_tb.major_name, faculty_tb.faculty_name
+  const sql = `SELECT users_tb.user_id, users_tb.password, users_tb.user_status, users_tb.title_name, users_tb.fname, users_tb.lname, users_tb.sex, users_tb.birthday, major_tb.major_id, major_tb.major_name, faculty_tb.faculty_name
   FROM ((users_tb
   INNER JOIN major_tb ON users_tb.major_id = major_tb.major_id)
   INNER JOIN faculty_tb ON major_tb.faculty_id = faculty_tb.faculty_id) where user_id LIKE '%${data}%' OR fname LIKE '%${data}%' OR lname LIKE '%${data}%' OR major_name LIKE '%${data}%' OR faculty_name LIKE '%${data}%';`
@@ -58,10 +58,11 @@ await myData.query(
 }
 
 // ฟังก์ชั่นลบ user
-const deleteUserById = async (userId) => {
-  await myData.query(`DELETE FROM test_user WHERE id=${userId}`);
+const deleteUser = async (userId)=> {
+  const sql = `DELETE FROM users_tb WHERE user_id='${userId}';`
+  await myData.query(sql);
   return { msg: "delete success" };
-};
+  }
 
 // ฟังก์ชั่นตรวจสอบ password กับ password ที่เข้ารหัส
 comparePassword = async (password, existsPassword) => {
@@ -99,7 +100,7 @@ const loginUser = async (userId, password) => {
 module.exports = {
   getUsers,
   createNewUser,
-  deleteUserById,
+  deleteUser,
   getUserById,
   loginUser,
   updateUser,

@@ -20,7 +20,7 @@ const userRoutes = (app) => {
   app.get("/pgusers/:userId", { preHandler: [hooks.auth.validateToken] },controllers.pg_users.getUserById);
   app.post("/reg", controllers.pg_users.postUser);
   app.patch("/users", controllers.pg_users.updateUser);
-  // app.delete("/users", controllers.pg_users.deleteUser);
+  app.delete("/users", controllers.pg_users.deleteUser);
   app.post("/login", controllers.pg_users.postUserLogin);
 
   app.post("/reg-event", controllers.reg_event.InsertRegisterEvent);
