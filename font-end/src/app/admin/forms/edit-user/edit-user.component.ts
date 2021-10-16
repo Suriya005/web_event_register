@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EventService } from 'src/app/services/event.service';
 import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.scss']
 })
+
+
 export class EditUserComponent implements OnInit {
+
 
   constructor(
     private loginService: LoginService,
     private eventService: EventService,
     ) { }
+    
 
   major:any
   userData:any
@@ -61,5 +66,6 @@ export class EditUserComponent implements OnInit {
       console.log(res);
     })
   }
+
 
 }

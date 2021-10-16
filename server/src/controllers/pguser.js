@@ -3,12 +3,10 @@ const jwt = require("jsonwebtoken");
 
 const getUsers = async (req, res) => {
   const result = await userModels.getUsers();
-  console.log(result);
   res.send(result);
 };
 
 const getUserOnChange = async (req, res) => {
-  console.log(req.body,'test')
   const { body } = req;
   const result = await userModels.getUsersOnChange(body);
   res.send(result);
@@ -45,7 +43,6 @@ const postUserLogin = async (req, res) => {
 };
 const verifyToken = async (req, res) => {
   var decoded = jwt.decode(req.body.token)
-  // var decoded = jwt.verify(token, '123456');
   console.log(decoded)
   res.send(JSON.stringify(decoded))
 }

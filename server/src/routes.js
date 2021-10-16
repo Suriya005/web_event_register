@@ -1,8 +1,20 @@
 const controllers = require("./controllers");
 const hooks = require("./hooks");
+const opts = {
+  schema: {
+    response: {
+      200: {
+        type: 'object',
+        properties: {
+          hello: { type: 'string' }
+        }
+      }
+    }
+  }
+}
+
 
 const userRoutes = (app) => {
-  // Postsgre SQL routes
   app.get("/users",{ preHandler: [hooks.auth.validateTokenAdmin] },controllers.pg_users.getUsers);
   app.post("/users/search",{ preHandler: [hooks.auth.validateTokenAdmin] },controllers.pg_users.getUserOnChange);
   app.get("/pgusers/:userId", { preHandler: [hooks.auth.validateToken] },controllers.pg_users.getUserById);
@@ -20,9 +32,12 @@ const userRoutes = (app) => {
   app.post("/post/faculty", controllers.reg_event.postFaculty);
 
   // test
-  app.post("/apitest", (req, res) => {
-    const { body } = req;
-    res.send(body);
+  app.get("/apitest",opts, (req, res) => {
+    res.send({hello:'hello world'});
+  });
+
+  app.get("/fastify/schema",opts, (req, res) => {
+    res.send({hello:'hello world'});
   });
   app.get("/", (req, res) => {
     res.send("node is work");
